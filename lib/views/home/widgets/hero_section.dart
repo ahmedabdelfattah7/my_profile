@@ -1,4 +1,3 @@
-
 import 'package:ahmed_abdelfattah/controllers/navigation_controller.dart';
 import 'package:ahmed_abdelfattah/core/constants/app_assets.dart';
 import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
@@ -231,5 +230,3 @@ class HeroSection extends ConsumerWidget {
     );
   }
 }
-
-
