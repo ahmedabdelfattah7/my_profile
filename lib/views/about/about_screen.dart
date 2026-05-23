@@ -1,8 +1,8 @@
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
+import 'package:ahmed_abdelfattah/views/about/widgets/profile_section.dart';
+import 'package:ahmed_abdelfattah/views/about/widgets/skills_section.dart';
+import 'package:ahmed_abdelfattah/views/shared/animated_section.dart';
 import 'package:flutter/material.dart';
-import '../shared/animated_section.dart';
-import '../../../utils/responsive_helper.dart';
-import 'widgets/profile_section.dart';
-import 'widgets/skills_section.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});

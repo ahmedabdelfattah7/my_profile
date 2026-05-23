@@ -1,11 +1,11 @@
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
-import '../../../utils/hover_extensions.dart';
 
 class SocialIcon extends StatelessWidget {
+
+  const SocialIcon({required this.icon, required this.onTap, super.key});
   final IconData icon;
   final VoidCallback onTap;
-
-  const SocialIcon({super.key, required this.icon, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

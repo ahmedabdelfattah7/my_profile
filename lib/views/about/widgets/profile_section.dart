@@ -1,8 +1,8 @@
+import 'package:ahmed_abdelfattah/core/constants/app_assets.dart';
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_strings.dart';
-import '../../../core/constants/app_assets.dart';
-import '../../../utils/hover_extensions.dart';
-import '../../../utils/responsive_helper.dart';
 
 class ProfileSection extends StatelessWidget {
   const ProfileSection({super.key});

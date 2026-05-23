@@ -1,11 +1,11 @@
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
+import 'package:ahmed_abdelfattah/utils/url_launcher_helper.dart';
+import 'package:ahmed_abdelfattah/views/contact/widgets/contact_item.dart';
+import 'package:ahmed_abdelfattah/views/contact/widgets/social_icon.dart';
+import 'package:ahmed_abdelfattah/views/shared/animated_section.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../core/constants/app_strings.dart';
-import '../shared/animated_section.dart';
-import '../../../utils/url_launcher_helper.dart';
-import '../../../utils/responsive_helper.dart';
-import 'widgets/contact_item.dart';
-import 'widgets/social_icon.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});

@@ -1,17 +1,14 @@
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
-import '../../../utils/hover_extensions.dart';
 
 class SocialLink extends StatelessWidget {
+
+  const SocialLink({
+    required this.name, required this.icon, required this.onTap, super.key,
+  });
   final String name;
   final IconData icon;
   final VoidCallback onTap;
-
-  const SocialLink({
-    super.key,
-    required this.name,
-    required this.icon,
-    required this.onTap,
-  });
 
   @override
   Widget build(BuildContext context) {

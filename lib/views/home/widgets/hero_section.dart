@@ -1,18 +1,17 @@
 import 'dart:math' as math;
+
+import 'package:ahmed_abdelfattah/controllers/navigation_controller.dart';
+import 'package:ahmed_abdelfattah/core/constants/app_assets.dart';
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
+import 'package:ahmed_abdelfattah/views/home/widgets/terminal_widget.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:go_router/go_router.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../../core/constants/app_strings.dart';
-import '../../../core/constants/app_assets.dart';
-import '../../../utils/responsive_helper.dart';
-import '../../../controllers/navigation_controller.dart';
-import 'terminal_widget.dart';
-
-import '../../../utils/hover_extensions.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 class HeroSection extends ConsumerWidget {
   const HeroSection({super.key});
@@ -108,7 +107,7 @@ class HeroSection extends ConsumerWidget {
             ),
             child: AnimatedTextKit(
               animatedTexts: [
-                TypewriterAnimatedText('Hi, I\'m ${AppStrings.name}!'),
+                TypewriterAnimatedText("Hi, I'm ${AppStrings.name}!"),
                 TypewriterAnimatedText(AppStrings.subtitle),
                 TypewriterAnimatedText('I build robust, clean architectures.'),
               ],
@@ -149,7 +148,6 @@ class HeroSection extends ConsumerWidget {
     if (isDesktop) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(flex: 5, child: content),
           const SizedBox(width: 48),
@@ -159,7 +157,6 @@ class HeroSection extends ConsumerWidget {
     }
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         graphics,
         SizedBox(height: isMobile ? 32 : 48),
@@ -170,9 +167,9 @@ class HeroSection extends ConsumerWidget {
 }
 
 class _WebCodingIllustration extends StatelessWidget {
-  final double height;
 
   const _WebCodingIllustration({required this.height});
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +181,7 @@ class _WebCodingIllustration extends StatelessWidget {
       height: height,
       width: height * 1.2,
       child: TweenAnimationBuilder<double>(
-        tween: Tween<double>(begin: 0.0, end: 1.0),
+        tween: Tween<double>(begin: 0, end: 1),
         duration: const Duration(seconds: 4),
         curve: Curves.easeInOut,
         builder: (context, value, child) {
@@ -203,7 +200,7 @@ class _WebCodingIllustration extends StatelessWidget {
                   gradient: RadialGradient(
                     colors: [
                       primary.withValues(alpha: 0.15 * (0.8 + 0.4 * normalizedPulse)),
-                      primary.withValues(alpha: 0.0),
+                      primary.withValues(alpha: 0),
                     ],
                   ),
                 ),
@@ -290,7 +287,7 @@ class _WebCodingIllustration extends StatelessWidget {
                       // Mock Code Editor Content
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -367,7 +364,7 @@ class _WebCodingIllustration extends StatelessWidget {
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.12),
         shape: BoxShape.circle,
-        border: Border.all(color: color.withValues(alpha: 0.3), width: 1),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Icon(
         icon,
@@ -379,15 +376,15 @@ class _WebCodingIllustration extends StatelessWidget {
 }
 
 class _OrbitPainter extends CustomPainter {
-  final Color color;
-  final double dashLength;
-  final double spaceLength;
 
   _OrbitPainter({
     required this.color,
     required this.dashLength,
     required this.spaceLength,
   });
+  final Color color;
+  final double dashLength;
+  final double spaceLength;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -403,8 +400,8 @@ class _OrbitPainter extends CustomPainter {
 
     final metrics = path.computeMetrics();
     for (final metric in metrics) {
-      double distance = 0.0;
-      bool draw = true;
+      double distance = 0;
+      var draw = true;
       while (distance < metric.length) {
         final length = draw ? dashLength : spaceLength;
         if (distance + length > metric.length) {

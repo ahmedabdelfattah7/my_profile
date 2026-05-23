@@ -21,8 +21,7 @@ class ResponsiveHelper {
   static T value<T>(
     BuildContext context, {
     required T mobile,
-    T? tablet,
-    required T desktop,
+    required T desktop, T? tablet,
   }) {
     if (isMobile(context)) return mobile;
     if (isTablet(context)) return tablet ?? desktop;
@@ -36,13 +35,13 @@ extension ResponsiveContext on BuildContext {
   bool get isDesktop => ResponsiveHelper.isDesktop(this);
 
   /// Picks a value based on the current breakpoint.
-  T responsive<T>({required T mobile, T? tablet, required T desktop}) =>
+  T responsive<T>({required T mobile, required T desktop, T? tablet}) =>
       ResponsiveHelper.value<T>(this, mobile: mobile, tablet: tablet, desktop: desktop);
 
   /// Responsive horizontal page padding.
-  double get horizontalPadding => responsive(mobile: 20.0, tablet: 40.0, desktop: 60.0);
+  double get horizontalPadding => responsive(mobile: 20, tablet: 40, desktop: 60);
 
   /// Responsive vertical section spacing.
-  double get sectionSpacing => responsive(mobile: 32.0, tablet: 48.0, desktop: 64.0);
+  double get sectionSpacing => responsive(mobile: 32, tablet: 48, desktop: 64);
 }
 

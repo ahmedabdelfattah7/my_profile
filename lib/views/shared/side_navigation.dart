@@ -1,9 +1,8 @@
+import 'package:ahmed_abdelfattah/controllers/navigation_controller.dart';
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/views/shared/nav_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../controllers/navigation_controller.dart';
-import '../../core/constants/app_strings.dart';
-import 'nav_item.dart';
 
 class SideNavigation extends ConsumerWidget {
   const SideNavigation({super.key});
@@ -28,7 +27,7 @@ class SideNavigation extends ConsumerWidget {
       children: List.generate(navItems.length, (index) {
         final isActive = activeIndex == index;
         return Padding(
-          padding: const EdgeInsets.only(bottom: 30.0),
+          padding: const EdgeInsets.only(bottom: 30),
           child: NavItem(
             index: index,
             title: navItems[index]['title']!,

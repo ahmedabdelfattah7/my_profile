@@ -1,8 +1,7 @@
+import 'package:ahmed_abdelfattah/controllers/theme_controller.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../controllers/theme_controller.dart';
-import '../../utils/hover_extensions.dart';
 
 class ThemeToggleButton extends ConsumerWidget {
   const ThemeToggleButton({super.key});

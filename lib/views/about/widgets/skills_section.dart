@@ -1,6 +1,6 @@
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/views/about/widgets/skill_chip.dart';
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_strings.dart';
-import 'skill_chip.dart';
 
 class SkillsSection extends StatelessWidget {
   const SkillsSection({super.key});

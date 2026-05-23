@@ -1,7 +1,7 @@
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
+import 'package:ahmed_abdelfattah/views/home/widgets/terminal_dot.dart';
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_strings.dart';
-import '../../../utils/hover_extensions.dart';
-import 'terminal_dot.dart';
 
 class TerminalWidget extends StatelessWidget {
   const TerminalWidget({super.key});
@@ -44,11 +44,11 @@ class TerminalWidget extends StatelessWidget {
               ),
             ),
             // Terminal Content
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16),
               child: Text(
                 AppStrings.terminalJoke,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Courier',
                   fontSize: 13,
                   color: Colors.greenAccent,

@@ -1,23 +1,18 @@
+import 'package:ahmed_abdelfattah/controllers/navigation_controller.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../controllers/navigation_controller.dart';
-import '../../utils/hover_extensions.dart';
-
 class NavItem extends ConsumerWidget {
+
+  const NavItem({
+    required this.index, required this.title, required this.route, required this.isActive, super.key,
+  });
   final int index;
   final String title;
   final String route;
   final bool isActive;
-
-  const NavItem({
-    super.key,
-    required this.index,
-    required this.title,
-    required this.route,
-    required this.isActive,
-  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,7 +34,6 @@ class NavItem extends ConsumerWidget {
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       child: HoverScaleWidget(
-        scale: 1.05,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

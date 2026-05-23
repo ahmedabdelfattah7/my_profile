@@ -1,11 +1,11 @@
+import 'package:ahmed_abdelfattah/models/skill_model.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
-import '../../../models/skill_model.dart';
-import '../../../utils/hover_extensions.dart';
 
 class SkillChip extends StatelessWidget {
-  final SkillModel skill;
 
-  const SkillChip({super.key, required this.skill});
+  const SkillChip({required this.skill, super.key});
+  final SkillModel skill;
 
   @override
   Widget build(BuildContext context) {

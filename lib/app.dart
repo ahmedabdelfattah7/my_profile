@@ -1,11 +1,10 @@
+import 'package:ahmed_abdelfattah/controllers/loading_controller.dart';
+import 'package:ahmed_abdelfattah/controllers/theme_controller.dart';
+import 'package:ahmed_abdelfattah/core/router/app_router.dart';
+import 'package:ahmed_abdelfattah/core/theme/app_theme.dart';
+import 'package:ahmed_abdelfattah/views/loading/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'controllers/theme_controller.dart';
-import 'controllers/loading_controller.dart';
-import 'core/router/app_router.dart';
-import 'core/theme/app_theme.dart';
-import 'views/loading/loading_screen.dart';
 
 class PortfolioApp extends ConsumerWidget {
   const PortfolioApp({super.key});

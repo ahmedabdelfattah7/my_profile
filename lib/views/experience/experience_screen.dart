@@ -1,8 +1,8 @@
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
+import 'package:ahmed_abdelfattah/views/experience/widgets/experience_tile.dart';
+import 'package:ahmed_abdelfattah/views/shared/animated_section.dart';
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_strings.dart';
-import '../shared/animated_section.dart';
-import '../../../utils/responsive_helper.dart';
-import 'widgets/experience_tile.dart';
 
 class ExperienceScreen extends StatelessWidget {
   const ExperienceScreen({super.key});

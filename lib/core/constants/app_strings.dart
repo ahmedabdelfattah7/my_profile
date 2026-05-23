@@ -1,6 +1,6 @@
-import '../../models/experience_model.dart';
-import '../../models/project_model.dart';
-import '../../models/skill_model.dart';
+import 'package:ahmed_abdelfattah/models/experience_model.dart';
+import 'package:ahmed_abdelfattah/models/project_model.dart';
+import 'package:ahmed_abdelfattah/models/skill_model.dart';
 
 class AppStrings {
   AppStrings._();
@@ -79,7 +79,8 @@ $ sudo mob-ops --business "waste-management"
   static const List<ProjectModel> projects = [
     ProjectModel(
       name: 'My Tuba',
-      description: '''Healthcare management app streamlining insurance tasks.
+      description: '''
+Healthcare management app streamlining insurance tasks.
       Your smart platform to manage your medical insurance... all your coverage details in one place, easily and without complications.
 
 The Tuba app helps you manage your insurance benefits with ease. Now you can view your coverage details, approved network, and claim status without having to contact HR or insurance companies.
@@ -97,7 +98,8 @@ Network Provider Locator Easily find approved locations within your insurance ne
     ProjectModel(
       name: 'Tuba Business',
       description:
-          '''Tuba Business is a dedicated application for company owners, HR managers, and finance teams to manage healthcare benefits and monitor medical spending with full transparency.
+          '''
+Tuba Business is a dedicated application for company owners, HR managers, and finance teams to manage healthcare benefits and monitor medical spending with full transparency.
 
 What you can do:
 • Complete Spending Dashboard: View total company medical spending, spending per employee, high-cost services, usage analytics & trends, and AI-driven cost prediction.

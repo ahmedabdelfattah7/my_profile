@@ -1,9 +1,4 @@
 class ExperienceModel {
-  final String role;
-  final String company;
-  final String location;
-  final String period;
-  final List<String> highlights;
 
   const ExperienceModel({
     required this.role,
@@ -12,4 +7,9 @@ class ExperienceModel {
     required this.period,
     required this.highlights,
   });
+  final String role;
+  final String company;
+  final String location;
+  final String period;
+  final List<String> highlights;
 }

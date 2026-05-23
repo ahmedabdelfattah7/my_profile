@@ -1,14 +1,14 @@
+import 'package:ahmed_abdelfattah/models/project_model.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
+import 'package:ahmed_abdelfattah/utils/url_launcher_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../models/project_model.dart';
-import '../../../utils/url_launcher_helper.dart';
-import '../../../utils/hover_extensions.dart';
-import '../../../utils/responsive_helper.dart';
 
 class ProjectCard extends StatelessWidget {
-  final ProjectModel project;
 
-  const ProjectCard({super.key, required this.project});
+  const ProjectCard({required this.project, super.key});
+  final ProjectModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class ProjectCard extends StatelessWidget {
                   children: [
                     if (project.appStoreUrl != null)
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           FontAwesomeIcons.appStore,
                           size: 18,
                         ),
@@ -106,7 +106,7 @@ class ProjectCard extends StatelessWidget {
                       ),
                     if (project.playStoreUrl != null)
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           FontAwesomeIcons.googlePlay,
                           size: 18,
                         ),

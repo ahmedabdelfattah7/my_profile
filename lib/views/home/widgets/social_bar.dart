@@ -1,8 +1,8 @@
+import 'package:ahmed_abdelfattah/core/constants/app_strings.dart';
+import 'package:ahmed_abdelfattah/utils/url_launcher_helper.dart';
+import 'package:ahmed_abdelfattah/views/home/widgets/social_link.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../core/constants/app_strings.dart';
-import '../../../utils/url_launcher_helper.dart';
-import 'social_link.dart';
 
 class SocialBar extends StatelessWidget {
   const SocialBar({super.key});

@@ -1,18 +1,15 @@
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
-import '../../../utils/hover_extensions.dart';
-import '../../../utils/responsive_helper.dart';
 
 class ContactItem extends StatelessWidget {
+
+  const ContactItem({
+    required this.icon, required this.label, required this.onTap, super.key,
+  });
   final IconData icon;
   final String label;
   final VoidCallback onTap;
-
-  const ContactItem({
-    super.key,
-    required this.icon,
-    required this.label,
-    required this.onTap,
-  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,7 @@ class ContactItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: HoverScaleWidget(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [

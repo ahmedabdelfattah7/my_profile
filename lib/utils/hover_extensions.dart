@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 class HoverScaleWidget extends StatefulWidget {
-  final Widget child;
-  final double scale;
-  final Alignment alignment;
 
   const HoverScaleWidget({
-    super.key,
-    required this.child,
+    required this.child, super.key,
     this.scale = 1.05,
     this.alignment = Alignment.center,
   });
+  final Widget child;
+  final double scale;
+  final Alignment alignment;
 
   @override
   State<HoverScaleWidget> createState() => _HoverScaleWidgetState();
@@ -36,9 +35,9 @@ class _HoverScaleWidgetState extends State<HoverScaleWidget> {
 }
 
 class HoverTiltWidget extends StatefulWidget {
-  final Widget child;
 
-  const HoverTiltWidget({super.key, required this.child});
+  const HoverTiltWidget({required this.child, super.key});
+  final Widget child;
 
   @override
   State<HoverTiltWidget> createState() => _HoverTiltWidgetState();
@@ -60,7 +59,7 @@ class _HoverTiltWidgetState extends State<HoverTiltWidget> {
                 ..setEntry(3, 2, 0.001) // perspective
                 ..rotateX(0.02)
                 ..rotateY(-0.02)
-                ..setTranslationRaw(0.0, -5.0, 0.0))
+                ..setTranslationRaw(0, -5, 0))
             : Matrix4.identity(),
         child: widget.child,
       ),

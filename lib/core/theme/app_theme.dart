@@ -1,6 +1,6 @@
+import 'package:ahmed_abdelfattah/core/theme/app_colors.dart';
+import 'package:ahmed_abdelfattah/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
-import 'app_text_styles.dart';
 
 class AppTheme {
   AppTheme._();
@@ -12,7 +12,6 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.lightBackground,
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.lightPrimary,
-        brightness: Brightness.light,
         surface: AppColors.lightSurface,
         onSurface: AppColors.lightText,
         primary: AppColors.lightPrimary,
@@ -37,7 +36,7 @@ class AppTheme {
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
-            side: const BorderSide(color: Colors.black, width: 1.5),
+            side: const BorderSide(width: 1.5),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           textStyle: AppTextStyles.bodyInter.copyWith(

@@ -1,17 +1,16 @@
+import 'package:ahmed_abdelfattah/models/experience_model.dart';
+import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
-import '../../../models/experience_model.dart';
-import '../../../utils/hover_extensions.dart';
-import '../../../utils/responsive_helper.dart';
 
 class ExperienceTile extends StatelessWidget {
-  final ExperienceModel experience;
-  final bool isLast;
 
   const ExperienceTile({
-    super.key,
-    required this.experience,
+    required this.experience, super.key,
     this.isLast = false,
   });
+  final ExperienceModel experience;
+  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +87,7 @@ class ExperienceTile extends StatelessWidget {
                     const SizedBox(height: 12),
                     ...experience.highlights.map((highlight) {
                       return Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
+                        padding: const EdgeInsets.only(bottom: 8),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

@@ -1,13 +1,12 @@
+import 'package:ahmed_abdelfattah/core/router/fade_slide_transition_page.dart';
+import 'package:ahmed_abdelfattah/views/about/about_screen.dart';
+import 'package:ahmed_abdelfattah/views/contact/contact_screen.dart';
+import 'package:ahmed_abdelfattah/views/experience/experience_screen.dart';
+import 'package:ahmed_abdelfattah/views/home/home_screen.dart';
+import 'package:ahmed_abdelfattah/views/projects/projects_screen.dart';
+import 'package:ahmed_abdelfattah/views/shared/page_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../views/home/home_screen.dart';
-import '../../views/projects/projects_screen.dart';
-import '../../views/experience/experience_screen.dart';
-import '../../views/about/about_screen.dart';
-import '../../views/contact/contact_screen.dart';
-import '../../views/shared/page_layout.dart';
-import 'fade_slide_transition_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();

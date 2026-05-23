@@ -1,16 +1,15 @@
+import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
+import 'package:ahmed_abdelfattah/views/shared/side_navigation.dart';
+import 'package:ahmed_abdelfattah/views/shared/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/responsive_helper.dart';
-import 'side_navigation.dart';
-import 'theme_toggle_button.dart';
-
 class PageLayout extends StatelessWidget {
+
+  const PageLayout({required this.child, super.key});
   final Widget child;
 
-  const PageLayout({super.key, required this.child});
-
   // Height reserved for the floating top bar (hamburger + theme toggle).
-  static const double _topBarHeight = 64.0;
+  static const double _topBarHeight = 64;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class PageLayout extends StatelessWidget {
                         right: context.horizontalPadding,
                         // Reserve space for the floating top bar on mobile/tablet.
                         top: isDesktop ? 24.0 : _topBarHeight + 8.0,
-                        bottom: 24.0,
+                        bottom: 24,
                       ),
                       child: child,
                     ),
@@ -53,8 +52,8 @@ class PageLayout extends StatelessWidget {
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 12.0,
-                  vertical: 8.0,
+                  horizontal: 12,
+                  vertical: 8,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

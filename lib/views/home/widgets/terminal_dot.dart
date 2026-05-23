@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TerminalDot extends StatelessWidget {
-  final Color color;
 
-  const TerminalDot({super.key, required this.color});
+  const TerminalDot({required this.color, super.key});
+  final Color color;
 
   @override
   Widget build(BuildContext context) {

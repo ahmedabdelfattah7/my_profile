@@ -1,12 +1,12 @@
+import 'package:ahmed_abdelfattah/core/constants/app_assets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../../core/constants/app_assets.dart';
 
 class AppLoader extends StatelessWidget {
-  final double size;
 
   const AppLoader({super.key, this.size = 150});
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class AppLoader extends StatelessWidget {
           width: size,
           height: size,
           child: TweenAnimationBuilder<double>(
-            tween: Tween<double>(begin: 0.0, end: 1.0),
+            tween: Tween<double>(begin: 0, end: 1),
             duration: const Duration(seconds: 2),
             curve: Curves.easeInOut,
             builder: (context, value, child) {

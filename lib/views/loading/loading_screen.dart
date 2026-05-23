@@ -1,5 +1,5 @@
+import 'package:ahmed_abdelfattah/views/shared/app_loader.dart';
 import 'package:flutter/material.dart';
-import '../shared/app_loader.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});

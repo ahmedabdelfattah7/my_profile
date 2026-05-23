@@ -1,14 +1,14 @@
+import 'dart:async' show unawaited;
 import 'package:flutter/material.dart';
 
 class AnimatedSection extends StatefulWidget {
-  final Widget child;
-  final Duration delay;
 
   const AnimatedSection({
-    super.key,
-    required this.child,
-    this.delay = const Duration(milliseconds: 0),
+    required this.child, super.key,
+    this.delay = Duration.zero,
   });
+  final Widget child;
+  final Duration delay;
 
   @override
   State<AnimatedSection> createState() => _AnimatedSectionState();
@@ -29,20 +29,22 @@ class _AnimatedSectionState extends State<AnimatedSection>
     );
 
     _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
+      begin: 0,
+      end: 1,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.2),
+      begin: const Offset(0, 0.2),
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    Future.delayed(widget.delay, () {
-      if (mounted) {
-        _controller.forward();
-      }
-    });
+    unawaited(
+      Future.delayed(widget.delay, () async {
+        if (mounted) {
+          await _controller.forward();
+        }
+      }),
+    );
   }
 
   @override
