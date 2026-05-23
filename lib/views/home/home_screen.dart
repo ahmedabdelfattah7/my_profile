@@ -12,13 +12,12 @@ class HomeScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AnimatedSection(child: HeroSection()),
             SizedBox(height: 60),
             AnimatedSection(
               delay: Duration(milliseconds: 300),
-              child: SocialBar(),
+              child: Center(child: SocialBar()),
             ),
           ],
         ),

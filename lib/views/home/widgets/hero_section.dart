@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 
 import 'package:ahmed_abdelfattah/controllers/navigation_controller.dart';
 import 'package:ahmed_abdelfattah/core/constants/app_assets.dart';
@@ -7,11 +6,9 @@ import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
 import 'package:ahmed_abdelfattah/views/home/widgets/terminal_widget.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lottie/lottie.dart';
 
 class HeroSection extends ConsumerWidget {
   const HeroSection({super.key});
@@ -21,12 +18,6 @@ class HeroSection extends ConsumerWidget {
     final theme = Theme.of(context);
     final isDesktop = context.isDesktop;
     final isMobile = context.isMobile;
-
-    final lottieHeight = context.responsive<double>(
-      mobile: 200,
-      tablet: 260,
-      desktop: 320,
-    );
 
     final avatarSize = context.responsive<double>(
       mobile: 100,
@@ -49,8 +40,9 @@ class HeroSection extends ConsumerWidget {
     );
 
     final content = Column(
-      crossAxisAlignment:
-          isDesktop ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+      crossAxisAlignment: isDesktop
+          ? CrossAxisAlignment.start
+          : CrossAxisAlignment.center,
       children: [
         HoverScaleWidget(
           alignment: isDesktop ? Alignment.centerLeft : Alignment.center,
@@ -126,22 +118,11 @@ class HeroSection extends ConsumerWidget {
       ],
     );
 
-    final graphics = Column(
+    const graphics = Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          height: lottieHeight,
-          child: kIsWeb
-              ? _WebCodingIllustration(height: lottieHeight)
-              : Lottie.asset(
-                  AppAssets.codingAnimation,
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.code, size: 100),
-                ),
-        ),
-        const SizedBox(height: 16),
-        const TerminalWidget(),
+        SizedBox(height: 16),
+        TerminalWidget(),
       ],
     );
 
@@ -151,281 +132,104 @@ class HeroSection extends ConsumerWidget {
         children: [
           Expanded(flex: 5, child: content),
           const SizedBox(width: 48),
-          Expanded(flex: 5, child: graphics),
+          const Expanded(flex: 5, child: graphics),
         ],
       );
     }
 
     return Column(
       children: [
-        graphics,
-        SizedBox(height: isMobile ? 32 : 48),
-        content,
-      ],
-    );
-  }
-}
-
-class _WebCodingIllustration extends StatelessWidget {
-
-  const _WebCodingIllustration({required this.height});
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final primary = theme.colorScheme.primary;
-    final secondary = theme.colorScheme.secondary;
-
-    return SizedBox(
-      height: height,
-      width: height * 1.2,
-      child: TweenAnimationBuilder<double>(
-        tween: Tween<double>(begin: 0, end: 1),
-        duration: const Duration(seconds: 4),
-        curve: Curves.easeInOut,
-        builder: (context, value, child) {
-          final pulse = math.sin(value * 2 * math.pi); // smooth sin wave pulse [-1, 1]
-          final normalizedPulse = (pulse + 1) / 2; // [0, 1]
-
-          return Stack(
-            alignment: Alignment.center,
+        // Premium Mobile Hero Card
+        Container(
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surface.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(
+              color: theme.colorScheme.primary.withValues(alpha: 0.1),
+            ),
+          ),
+          child: Column(
             children: [
-              // Background glowing orb
-              Container(
-                width: height * 0.7,
-                height: height * 0.7,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: RadialGradient(
-                    colors: [
-                      primary.withValues(alpha: 0.15 * (0.8 + 0.4 * normalizedPulse)),
-                      primary.withValues(alpha: 0),
-                    ],
-                  ),
-                ),
-              ),
-              // Rotating outer dashed ring
-              Transform.rotate(
-                angle: value * 2 * math.pi,
-                child: SizedBox(
-                  width: height * 0.75,
-                  height: height * 0.75,
-                  child: CustomPaint(
-                    painter: _OrbitPainter(
-                      color: primary.withValues(alpha: 0.2),
-                      dashLength: 10,
-                      spaceLength: 8,
+              HoverScaleWidget(
+                child: Container(
+                  width: avatarSize,
+                  height: avatarSize,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(60),
+                      topRight: Radius.circular(45),
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(65),
                     ),
-                  ),
-                ),
-              ),
-              // Counter-rotating inner ring
-              Transform.rotate(
-                angle: -value * 2 * math.pi * 1.5,
-                child: SizedBox(
-                  width: height * 0.55,
-                  height: height * 0.55,
-                  child: CustomPaint(
-                    painter: _OrbitPainter(
-                      color: secondary.withValues(alpha: 0.3),
-                      dashLength: 15,
-                      spaceLength: 12,
+                    border: Border.all(
+                      color: theme.colorScheme.primary,
+                      width: 3.5,
                     ),
-                  ),
-                ),
-              ),
-              // Central glowing glassmorphic terminal/dashboard card
-              Container(
-                width: height * 0.6,
-                height: height * 0.45,
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surface.withValues(alpha: 0.8),
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: primary.withValues(alpha: 0.25),
-                    width: 1.5,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: primary.withValues(alpha: 0.12 * (1 + normalizedPulse)),
-                      blurRadius: 20 + (10 * normalizedPulse),
-                      spreadRadius: 1,
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Column(
-                    children: [
-                      // Window Header
-                      Container(
-                        height: 28,
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-                        child: Row(
-                          children: [
-                            _buildDot(Colors.redAccent),
-                            const SizedBox(width: 6),
-                            _buildDot(Colors.amber),
-                            const SizedBox(width: 6),
-                            _buildDot(Colors.green),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(
-                                'workspace.dart',
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
-                                  fontFamily: 'monospace',
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ),
-                          ],
+                    boxShadow: [
+                      BoxShadow(
+                        color: theme.colorScheme.primary.withValues(
+                          alpha: 0.25,
                         ),
-                      ),
-                      // Mock Code Editor Content
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildCodeLine(primary, 0.4),
-                              const SizedBox(height: 6),
-                              _buildCodeLine(secondary, 0.65, indent: 12),
-                              const SizedBox(height: 6),
-                              _buildCodeLine(theme.colorScheme.tertiary, 0.5, indent: 24),
-                              const SizedBox(height: 6),
-                              _buildCodeLine(primary, 0.8, indent: 12),
-                              const SizedBox(height: 6),
-                              _buildCodeLine(secondary, 0.3),
-                            ],
-                          ),
-                        ),
+                        blurRadius: 20,
+                        spreadRadius: 1,
+                        offset: const Offset(0, 8),
                       ),
                     ],
+                    image: const DecorationImage(
+                      image: AssetImage(AppAssets.profileImage),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-              // Glowing floating code symbols
-              Positioned(
-                top: height * 0.15 + (8 * normalizedPulse),
-                left: height * 0.1,
-                child: _buildFloatingIcon(Icons.widgets_rounded, primary, height * 0.1),
+              const SizedBox(height: 24),
+              Text(
+                AppStrings.title,
+                style: titleStyle,
+                textAlign: TextAlign.center,
               ),
-              Positioned(
-                bottom: height * 0.1 + (12 * (1 - normalizedPulse)),
-                right: height * 0.05,
-                child: _buildFloatingIcon(Icons.terminal_rounded, secondary, height * 0.11),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: animatedTextHeight,
+                child: DefaultTextStyle(
+                  style: theme.textTheme.headlineMedium!.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                    fontSize: context.responsive<double>(
+                      mobile: 16,
+                      tablet: 20,
+                      desktop: 24,
+                    ),
+                  ),
+                  textAlign: TextAlign.center,
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText("Hi, I'm ${AppStrings.name}!"),
+                      TypewriterAnimatedText(AppStrings.subtitle),
+                      TypewriterAnimatedText(
+                        'I build robust, clean architectures.',
+                      ),
+                    ],
+                    repeatForever: true,
+                  ),
+                ),
               ),
-              Positioned(
-                top: height * 0.2 - (6 * normalizedPulse),
-                right: height * 0.15,
-                child: _buildFloatingIcon(Icons.bolt, Colors.amber, height * 0.09),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () {
+                  ref.read(navigationControllerProvider.notifier).state = 1;
+                  context.go('/projects');
+                },
+                child: const Text('SEE MY WORK →'),
               ),
             ],
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildDot(Color color) {
-    return Container(
-      width: 8,
-      height: 8,
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.85),
-        shape: BoxShape.circle,
-      ),
-    );
-  }
-
-  Widget _buildCodeLine(Color color, double widthPercent, {double indent = 0}) {
-    return Row(
-      children: [
-        if (indent > 0) SizedBox(width: indent),
-        Container(
-          height: 6,
-          width: 120 * widthPercent,
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.7),
-            borderRadius: BorderRadius.circular(3),
           ),
         ),
+        SizedBox(height: isMobile ? 32 : 48),
+        graphics,
       ],
     );
   }
-
-  Widget _buildFloatingIcon(IconData icon, Color color, double size) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
-        shape: BoxShape.circle,
-        border: Border.all(color: color.withValues(alpha: 0.3)),
-      ),
-      child: Icon(
-        icon,
-        color: color,
-        size: size * 0.5,
-      ),
-    );
-  }
 }
 
-class _OrbitPainter extends CustomPainter {
-
-  _OrbitPainter({
-    required this.color,
-    required this.dashLength,
-    required this.spaceLength,
-  });
-  final Color color;
-  final double dashLength;
-  final double spaceLength;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.2;
-
-    final radius = size.width / 2;
-    final center = Offset(size.width / 2, size.height / 2);
-
-    final path = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
-
-    final metrics = path.computeMetrics();
-    for (final metric in metrics) {
-      double distance = 0;
-      var draw = true;
-      while (distance < metric.length) {
-        final length = draw ? dashLength : spaceLength;
-        if (distance + length > metric.length) {
-          if (draw) {
-            canvas.drawPath(
-              metric.extractPath(distance, metric.length),
-              paint,
-            );
-          }
-          break;
-        }
-        if (draw) {
-          canvas.drawPath(
-            metric.extractPath(distance, distance + length),
-            paint,
-          );
-        }
-        distance += length;
-        draw = !draw;
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
 

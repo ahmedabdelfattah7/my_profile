@@ -3,7 +3,6 @@ import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
 import 'package:ahmed_abdelfattah/utils/url_launcher_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProjectCard extends StatelessWidget {
 
@@ -95,10 +94,7 @@ class ProjectCard extends StatelessWidget {
                   children: [
                     if (project.appStoreUrl != null)
                       IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.appStore,
-                          size: 18,
-                        ),
+                        icon: const Icon(Icons.apple, size: 20),
                         onPressed: () =>
                             UrlLauncherHelper.openUrl(project.appStoreUrl!),
                         tooltip: 'App Store',
@@ -106,10 +102,7 @@ class ProjectCard extends StatelessWidget {
                       ),
                     if (project.playStoreUrl != null)
                       IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.googlePlay,
-                          size: 18,
-                        ),
+                        icon: const Icon(Icons.android, size: 20),
                         onPressed: () =>
                             UrlLauncherHelper.openUrl(project.playStoreUrl!),
                         tooltip: 'Play Store',

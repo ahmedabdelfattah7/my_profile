@@ -1,5 +1,6 @@
 import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
 import 'package:ahmed_abdelfattah/views/shared/side_navigation.dart';
+import 'package:ahmed_abdelfattah/views/shared/tech_background.dart';
 import 'package:ahmed_abdelfattah/views/shared/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class PageLayout extends StatelessWidget {
           : const Drawer(child: SideNavigation()),
       body: Stack(
         children: [
+          const TechBackground(),
           Row(
             children: [
               if (isDesktop) const SideNavigation(),

@@ -14,7 +14,7 @@ class ProfileSection extends StatelessWidget {
     final imageSize = context.responsive<double>(
       mobile: 180,
       tablet: 220,
-      desktop: 260,
+      desktop: MediaQuery.of(context).size.width < 1200 ? 200 : 250,
     );
 
     return Column(
@@ -22,7 +22,6 @@ class ProfileSection extends StatelessWidget {
           isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Align(
-          alignment: isMobile ? Alignment.center : Alignment.centerLeft,
           child: HoverScaleWidget(
             child: Container(
               width: imageSize,
