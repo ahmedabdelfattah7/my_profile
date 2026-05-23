@@ -1,10 +1,11 @@
 import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocialIcon extends StatelessWidget {
-
   const SocialIcon({required this.icon, required this.onTap, super.key});
-  final IconData icon;
+
+  final FaIconData icon;
   final VoidCallback onTap;
 
   @override
@@ -21,7 +22,7 @@ class SocialIcon extends StatelessWidget {
             color: theme.colorScheme.primary.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, size: 32, color: theme.colorScheme.primary),
+          child: FaIcon(icon, size: 32, color: theme.colorScheme.primary),
         ),
       ),
     );

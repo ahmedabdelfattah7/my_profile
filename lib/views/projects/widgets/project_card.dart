@@ -95,7 +95,7 @@ class ProjectCard extends StatelessWidget {
                   children: [
                     if (project.appStoreUrl != null)
                       IconButton(
-                        icon: const Icon(
+                        icon: const FaIcon(
                           FontAwesomeIcons.appStore,
                           size: 18,
                         ),
@@ -106,7 +106,7 @@ class ProjectCard extends StatelessWidget {
                       ),
                     if (project.playStoreUrl != null)
                       IconButton(
-                        icon: const Icon(
+                        icon: const FaIcon(
                           FontAwesomeIcons.googlePlay,
                           size: 18,
                         ),

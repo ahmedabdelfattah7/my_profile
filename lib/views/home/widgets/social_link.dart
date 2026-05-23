@@ -1,13 +1,17 @@
 import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocialLink extends StatelessWidget {
-
   const SocialLink({
-    required this.name, required this.icon, required this.onTap, super.key,
+    required this.name,
+    required this.icon,
+    required this.onTap,
+    super.key,
   });
+
   final String name;
-  final IconData icon;
+  final FaIconData icon;
   final VoidCallback onTap;
 
   @override
@@ -23,7 +27,7 @@ class SocialLink extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 20, color: theme.colorScheme.primary),
+            FaIcon(icon, size: 20, color: theme.colorScheme.primary),
             const SizedBox(width: 8),
             Text(
               name,
