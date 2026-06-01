@@ -27,7 +27,9 @@ jobs:
 
       - name: Build Web Release
         # --base-href "/my_profile/" ensures all assets load correctly from the subpath
-        run: flutter build web --release --base-href "/my_profile/"
+        run: |
+          flutter build web --release --base-href "/my_profile/"
+          cp build/web/index.html build/web/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
