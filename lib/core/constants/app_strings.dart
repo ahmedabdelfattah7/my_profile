@@ -23,7 +23,7 @@ $ sudo mob-ops --business "waste-management"
   static const String location = 'Cairo, Egypt';
   static const String linkedinUrl =
       'https://www.linkedin.com/in/ahmad-abdelfattah';
-  static const String githubUrl = 'https://github.com/ahmedabdelfattah';
+  static const String githubUrl = 'https://github.com/ahmedabdelfattah7';
 
   static const String summary =
       'Mid-level Mobile Software Engineer with expertise in designing and delivering scalable, cross-platform applications. Key technical contributor to the Tuba ecosystem, which recently secured 8M USD in funding, and the Kitch platform, currently serving 25k+ active users. Skilled in Clean Architecture, state management, and optimizing performance for complex healthcare and lifestyle products.';
@@ -35,7 +35,7 @@ $ sudo mob-ops --business "waste-management"
     ExperienceModel(
       role: 'Flutter Developer',
       company: 'Tuba – Saudi Arabia',
-      location: 'Remote',
+      location: 'Cairo, Egypt',
       period: 'Sept 2024 – Present',
       highlights: [
         'Spearheaded the development of two core mobile applications (Consumer & Business) that served as the technical foundation for securing 8M USD in company funding.',
@@ -57,7 +57,7 @@ $ sudo mob-ops --business "waste-management"
     ExperienceModel(
       role: 'Flutter Developer',
       company: 'Qader',
-      location: 'Remote',
+      location: 'Cairo, Egypt',
       period: 'Feb 2024 – Sept 2024',
       highlights: [
         'Built and maintained outsourced mobile apps across multiple industries.',
@@ -97,8 +97,7 @@ Network Provider Locator Easily find approved locations within your insurance ne
     ),
     ProjectModel(
       name: 'Tuba Business',
-      description:
-          '''
+      description: '''
 Tuba Business is a dedicated application for company owners, HR managers, and finance teams to manage healthcare benefits and monitor medical spending with full transparency.
 
 What you can do:
@@ -132,7 +131,14 @@ Tuba isn't just another insurance provider; it's a future-forward partner. We le
           'https://apps.apple.com/eg/app/kitch-%D9%83%D9%8A%D8%AA%D8%B4/id6743743762',
       playStoreUrl:
           'https://play.google.com/store/apps/details?id=com.app.kitch',
-      technologies: ['Flutter', 'Bloc', 'Mvc+s', 'Analytics', 'local database'],
+      technologies: [
+        'Flutter',
+        'GetX',
+        'Firebase',
+        'Clean Architecture',
+        'Dio',
+        'Drift',
+      ],
     ),
 
     ProjectModel(

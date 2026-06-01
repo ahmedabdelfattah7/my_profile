@@ -1,9 +1,8 @@
 import 'package:ahmed_abdelfattah/models/project_model.dart';
 import 'package:ahmed_abdelfattah/utils/hover_extensions.dart';
 import 'package:ahmed_abdelfattah/utils/responsive_helper.dart';
-import 'package:ahmed_abdelfattah/utils/url_launcher_helper.dart';
+import 'package:ahmed_abdelfattah/views/shared/store_badge_button.dart';
 import 'package:flutter/material.dart';
-
 class ProjectCard extends StatelessWidget {
 
   const ProjectCard({required this.project, super.key});
@@ -90,23 +89,19 @@ class ProjectCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 // Store Links
-                Row(
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 8,
                   children: [
                     if (project.appStoreUrl != null)
-                      IconButton(
-                        icon: const Icon(Icons.apple, size: 20),
-                        onPressed: () =>
-                            UrlLauncherHelper.openUrl(project.appStoreUrl!),
-                        tooltip: 'App Store',
-                        visualDensity: VisualDensity.compact,
+                      StoreBadgeButton(
+                        storeType: StoreType.appStore,
+                        url: project.appStoreUrl!,
                       ),
                     if (project.playStoreUrl != null)
-                      IconButton(
-                        icon: const Icon(Icons.android, size: 20),
-                        onPressed: () =>
-                            UrlLauncherHelper.openUrl(project.playStoreUrl!),
-                        tooltip: 'Play Store',
-                        visualDensity: VisualDensity.compact,
+                      StoreBadgeButton(
+                        storeType: StoreType.playStore,
+                        url: project.playStoreUrl!,
                       ),
                   ],
                 ),

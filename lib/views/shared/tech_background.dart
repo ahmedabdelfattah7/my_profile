@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class TechBackground extends StatelessWidget {
@@ -44,16 +45,18 @@ class _TechBackgroundPainter extends CustomPainter {
   void _drawDotGrid(Canvas canvas, Size size, Color color) {
     final paint = Paint()
       ..color = color
-      ..style = PaintingStyle.fill;
+      ..strokeWidth = 3.0
+      ..strokeCap = StrokeCap.round;
 
     const spacing = 40.0;
-    const radius = 1.5;
+    final points = <Offset>[];
 
     for (double x = 0; x < size.width; x += spacing) {
       for (double y = 0; y < size.height; y += spacing) {
-        canvas.drawCircle(Offset(x, y), radius, paint);
+        points.add(Offset(x, y));
       }
     }
+    canvas.drawPoints(ui.PointMode.points, points, paint);
   }
 
   void _drawShapes(Canvas canvas, Size size, Color color1, Color color2) {
