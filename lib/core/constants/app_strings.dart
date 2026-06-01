@@ -10,13 +10,13 @@ class AppStrings {
   static const String subtitle =
       'A passionate mobile developer & AI/ML enthusiast';
   static const String terminalJoke = r'''
-$ sudo mob-ops --business "waste-management"
+$ sudo hack --time "2 hours before deadline"
 
-> Running background job... 🗑️🤫
-> [SYSTEM] Garbage collector executed successfully.
-> [WARN] FBI wiretap detected on port 8080.
-> Tony: "You're gonna look me in the eye and tell me it's not a memory leak?"
-> "Forget about it. The code compiled. 🔫🥖"
+> Working under pressure... ⏰
+> [SYSTEM] Miracle completed.
+> [WARN] Stack overflow on port 8080.
+> Boss: "Is this stable?"
+> "It works on my machine... and that's all that matters."
 ''';
   static const String email = 'ahmadabdelfattahahmad97@gmail.com';
   static const String phone = '+20 155 076 9320';
